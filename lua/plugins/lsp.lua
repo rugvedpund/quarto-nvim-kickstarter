@@ -1,4 +1,3 @@
-
 return {
 
   {
@@ -15,7 +14,7 @@ return {
     opts = {
       verbose = {
         no_code_found = false,
-      }
+      },
     },
   },
 
@@ -132,17 +131,17 @@ return {
         root_dir = util.root_pattern('.git', '.marksman.toml', '_quarto.yml'),
       }
 
-      lspconfig.r_language_server.setup {
-        capabilities = capabilities,
-        flags = lsp_flags,
-        settings = {
-          r = {
-            lsp = {
-              rich_documentation = false,
-            },
-          },
-        },
-      }
+      -- lspconfig.r_language_server.setup {
+      --   capabilities = capabilities,
+      --   flags = lsp_flags,
+      --   settings = {
+      --     r = {
+      --       lsp = {
+      --         rich_documentation = false,
+      --       },
+      --     },
+      --   },
+      -- }
 
       lspconfig.cssls.setup {
         capabilities = capabilities,
@@ -247,7 +246,6 @@ return {
         flags = lsp_flags,
       }
 
-
       lspconfig.julials.setup {
         capabilities = capabilities,
         flags = lsp_flags,
@@ -272,16 +270,16 @@ return {
       --   flags = lsp_flags,
       -- }
 
-      lspconfig.rust_analyzer.setup{
+      lspconfig.rust_analyzer.setup {
         capabilities = capabilities,
         settings = {
           ['rust-analyzer'] = {
             diagnostics = {
-              enable = false;
-            }
-          }
-        }
-     }
+              enable = false,
+            },
+          },
+        },
+      }
 
       -- lspconfig.ruff_lsp.setup {
       --   capabilities = capabilities,

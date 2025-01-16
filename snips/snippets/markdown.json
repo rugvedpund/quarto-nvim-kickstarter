@@ -3,6 +3,10 @@
     "prefix": ["eq"],
     "body": ["\\$\\$", "$1", "\\$\\$ {#eq-${2: label}}"]
   },
+  "Insert Inline Equation": {
+    "prefix": "ii",
+    "body": ["\\$$1\\$"]
+  },
   "Insert Block Equation": {
     "prefix": "$$",
     "body": ["\\$$", "${0}", "\\$$"]

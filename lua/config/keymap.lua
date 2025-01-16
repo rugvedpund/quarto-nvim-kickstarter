@@ -379,7 +379,7 @@ wk.add({
     { "<leader>vh", ':execute "h " . expand("<cword>")<cr>', desc = "vim [h]elp for current word" },
     { "<leader>vl", ":Lazy<cr>", desc = "[l]azy package manager" },
     { "<leader>vm", ":Mason<cr>", desc = "[m]ason software installer" },
-    { "<leader>vs", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k<cr>", desc = "[s]ettings, edit vimrc" },
+    -- { "<leader>vs", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k<cr>", desc = "[s]ettings, edit vimrc" },
     { "<leader>vt", toggle_light_dark_theme, desc = "[t]oggle light/dark theme" },
     { "<leader>x", group = "e[x]ecute" },
     { "<leader>xx", ":w<cr>:source %<cr>", desc = "[x] source %" },

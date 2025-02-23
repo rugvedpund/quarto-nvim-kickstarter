@@ -3,6 +3,24 @@ return {
   { 'folke/tokyonight.nvim', enabled = false, lazy = false, priority = 1000 },
   { 'EdenEast/nightfox.nvim', enabled = false, lazy = false, priority = 1000 },
   {
+    'ellisonleao/gruvbox.nvim',
+    enabled = true,
+    priority = 1000,
+    config = true,
+    opts = {
+      transparent_mode = true,
+    },
+    init = function()
+      vim.g.gruvbox_contrast_dark = 'soft'
+      vim.g.gruvbox_contrast_light = 'soft'
+      vim.g.gruvbox_italic = 1
+      vim.g.gruvbox_transparent_bg = 1
+      vim.o.background = 'dark'
+      vim.cmd.colorscheme 'gruvbox'
+      vim.api.nvim_set_hl(0, 'TermCursor', { fg = '#A6E3A1', bg = '#A6E3A1' })
+    end,
+  },
+  {
     'catppuccin/nvim',
     name = 'catppuccin',
     enabled = false,
@@ -32,12 +50,12 @@ return {
 
   {
     'rebelot/kanagawa.nvim',
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
       require('kanagawa').setup {
-        transparent = true,
+        -- transparent = true,
         colors = {
           theme = {
             all = {

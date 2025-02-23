@@ -1,4 +1,25 @@
 return {
+  {
+    'christoomey/vim-tmux-navigator',
+    init = function()
+      vim.g.tmux_navigator_no_mappings = 1
+      vim.g.tmux_navigator_save_on_switch = 2
+      vim.g.tmux_navigator_preserve_zoom = 0
+    end,
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+    },
+    keys = {
+      { '<M-h>', '<cmd>TmuxNavigateLeft<cr>' },
+      { '<M-j>', '<cmd>TmuxNavigateDown<cr>' },
+      { '<M-k>', '<cmd>TmuxNavigateUp<cr>' },
+      { '<M-l>', '<cmd>TmuxNavigateRight<cr>' },
+    },
+  },
   -- telescope
   -- a nice seletion UI also to find and open files
   {
@@ -95,10 +116,10 @@ return {
             require('telescope.themes').get_dropdown(),
           },
           fzf = {
-            fuzzy = true,                   -- false will only do exact matching
+            fuzzy = true, -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true,    -- override the file sorter
-            case_mode = 'smart_case',       -- or "ignore_case" or "respect_case"
+            override_file_sorter = true, -- override the file sorter
+            case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
           },
         },
       }
@@ -129,7 +150,7 @@ return {
     },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     keys = {
-      { '-',          ':Oil<cr>', desc = 'oil' },
+      { '-', ':Oil<cr>', desc = 'oil' },
       { '<leader>ef', ':Oil<cr>', desc = 'edit [f]iles' },
     },
     cmd = 'Oil',
@@ -191,7 +212,7 @@ return {
   },
 
   {
-    "NStefan002/screenkey.nvim",
+    'NStefan002/screenkey.nvim',
     lazy = false,
   },
 
@@ -253,7 +274,7 @@ return {
     },
     opts = {
       providers = {
-        priority = { 'markdown', 'lsp',  'norg' },
+        priority = { 'markdown', 'lsp', 'norg' },
         -- Configuration for each provider (3rd party providers are supported)
         lsp = {
           -- Lsp client names to ignore
@@ -269,9 +290,10 @@ return {
 
   { -- or show symbols in the current file as breadcrumbs
     'Bekaboo/dropbar.nvim',
-    enabled = function()
-      return vim.fn.has 'nvim-0.10' == 1
-    end,
+    enabled=false,
+    -- enabled = function()
+    --   return vim.fn.has 'nvim-0.10' == 1
+    -- end,
     dependencies = {
       'nvim-telescope/telescope-fzf-native.nvim',
     },
@@ -348,15 +370,15 @@ return {
 
   { -- show images in nvim!
     '3rd/image.nvim',
-    enabled = true,
+    enabled = false,
     dev = false,
     ft = { 'markdown', 'quarto', 'vimwiki' },
     cond = function()
       -- Disable on Windows system
-       return vim.fn.has 'win32' ~= 1 
+      return vim.fn.has 'win32' ~= 1
     end,
     dependencies = {
-       'leafo/magick', -- that's a lua rock
+      'leafo/magick', -- that's a lua rock
     },
     config = function()
       -- Requirements

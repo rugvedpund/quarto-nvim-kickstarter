@@ -65,9 +65,9 @@ return {
           ['<c-y>'] = cmp.mapping.confirm {
             select = true,
           },
-          ['<CR>'] = cmp.mapping.confirm {
-            select = true,
-          },
+          -- ['<CR>'] = cmp.mapping.confirm {
+          --   select = true,
+          -- },
 
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -121,7 +121,7 @@ return {
           },
         },
         sources = {
-          -- { name = 'otter' }, -- for code chunks in quarto
+          { name = 'otter' }, -- for code chunks in quarto
           { name = 'path' },
           { name = 'nvim_lsp_signature_help' },
           { name = 'nvim_lsp' },
@@ -131,7 +131,7 @@ return {
           { name = 'spell' },
           { name = 'treesitter', keyword_length = 5, max_item_count = 3 },
           { name = 'calc' },
-          { name = 'latex_symbols' },
+          -- { name = 'latex_symbols' },
           { name = 'emoji' },
         },
         view = {
@@ -164,7 +164,7 @@ return {
           auto_trigger = true,
           debounce = 75,
           keymap = {
-            accept = '<c-a>',
+            accept = '<c-j>',
             accept_word = false,
             accept_line = false,
             next = '<M-]>',
@@ -176,4 +176,21 @@ return {
       }
     end,
   },
+
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    branch = 'main',
+    event = 'VeryLazy',
+    dependencies = {
+      { 'nvim-telescope/telescope.nvim' },
+      { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
+      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
+    },
+    build = 'make tiktoken', -- Only on MacOS or Linux
+    opts = {
+      debug = false, -- Enable debugging
+      auto_follow_cursor = true, -- Auto-follow cursor in chat
+    },
+  },
+
 }

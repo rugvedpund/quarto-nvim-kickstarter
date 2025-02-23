@@ -9,10 +9,11 @@ vim.opt.termguicolors = true
 vim.api.nvim_set_hl(0, 'TermCursor', { fg = '#A6E3A1', bg = '#A6E3A1' })
 
 -- disable fill chars (the ~ after the buffer)
-vim.o.fillchars = 'eob: '
+-- vim.o.fillchars = 'eob: '
 
 -- more opinionated
 vim.opt.number = true -- show linenumbers
+vim.opt.relativenumber = true -- show relative linenumbers
 vim.opt.mouse = 'a' -- enable mouse
 vim.opt.mousefocus = true
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' } -- use system clipboard
@@ -27,14 +28,14 @@ vim.opt.shortmess:append 'A'
 vim.opt.showmode = false
 
 -- use less indentation
-local tabsize = 2
+local tabsize = 4
 vim.opt.expandtab = true
 vim.opt.shiftwidth = tabsize
 vim.opt.tabstop = tabsize
 
 -- space as leader
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = '\\'
 
 -- smarter search
 vim.opt.ignorecase = true
@@ -76,7 +77,9 @@ let g:currentmode={
 
 math.randomseed(os.time())
 local i = math.random(#animals)
-vim.opt.statusline = '%{%g:currentmode[mode()]%} %{%reg_recording()%} %* %t | %y | %* %= c:%c l:%l/%L %p%% %#NonText# ' .. animals[i] .. ' %*'
+-- vim.opt.statusline = '%{%g:currentmode[mode()]%} %{%reg_recording()%} %* %t%m | %y | %* %= c:%c l:%l/%L %p%% %#NonText# ' .. animals[i] .. ' %*'
+-- vim.opt.statusline = '%{%g:currentmode[mode()]%} %* %t%m %= %y %* c:%c l:%l/%L %p%% %#NonText# ' .. animals[i] .. ' %*'
+vim.opt.statusline = '%{%g:currentmode[mode()]%} %* %t%m %= %y %* c:%c l:%l/%L' 
 
 -- hide cmdline when not used
 vim.opt.cmdheight = 1
@@ -89,7 +92,7 @@ vim.opt.splitbelow = true
 vim.opt.showtabline = 1
 
 --windowline
-vim.opt.winbar = '%f'
+vim.opt.winbar = ''
 
 -- don't continue comments automagically
 -- https://neovim.io/doc/user/options.html#'formatoptions'
@@ -98,17 +101,20 @@ vim.opt.formatoptions:remove 'r'
 vim.opt.formatoptions:remove 'o'
 
 -- scroll before end of window
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 10
 
 -- (don't == 0) replace certain elements with prettier ones
-vim.opt.conceallevel = 0
+vim.opt.conceallevel = 2
 
 -- diagnostics
 vim.diagnostic.config {
-  virtual_text = true,
-  underline = true,
+  virtual_text = false,
+  underline = false,
   signs = true,
 }
+
+-- encourage use of :find from the vim cmdline
+vim.opt.path:append '*/**'
 
 -- add new filetypes
 vim.filetype.add {

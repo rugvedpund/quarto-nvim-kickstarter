@@ -244,22 +244,27 @@
         "prefix": "lp"
     },
     "lr": {
-        "body": "\\left( 1 \\right) $0",
+        "body": "\\left( $1 \\right) $0",
         "description": "left( right)",
         "prefix": "lr"
     },
+    "lr<": {
+        "body": "\\left< $1 \\right> $0",
+        "description": "left< right>",
+        "prefix": "lr<"
+    },
     "lr(": {
-        "body": "\\left( 1 \\right) $0",
+        "body": "\\left( $1 \\right) $0",
         "description": "left( right)",
         "prefix": "lr("
     },
     "lr[": {
-        "body": "\\left[ 1 \\right] $0",
+        "body": "\\left[ $1 \\right] $0",
         "description": "left[ right]",
         "prefix": "lr["
     },
     "lra": {
-        "body": "\\left<1 \\right>$0",
+        "body": "\\left< $1 \\right>$0",
         "description": "leftangle rightangle",
         "prefix": "lra"
     },

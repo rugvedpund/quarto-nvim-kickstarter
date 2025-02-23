@@ -102,7 +102,7 @@ return {
           map('[d', function () vim.diagnostic.jump({count = 1}) end,'previous [d]iagnostic ')
           map(']d', function () vim.diagnostic.jump({count = -1}) end, 'next [d]iagnostic ')
           map('<leader>ll', vim.lsp.codelens.run, '[l]ens run')
-          map('<leader>lR', vim.lsp.buf.rename, '[l]sp [R]ename')
+          map('<leader>lr', vim.lsp.buf.rename, '[l]sp [R]ename')
           map('<leader>lf', vim.lsp.buf.format, '[l]sp [f]ormat')
           vmap('<leader>lf', vim.lsp.buf.format, '[l]sp [f]ormat')
           map('<leader>lq', vim.diagnostic.setqflist, '[l]sp diagnostic [q]uickfix')

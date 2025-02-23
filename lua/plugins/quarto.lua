@@ -59,7 +59,8 @@ return {
       endfunction
       ]]
 
-      vim.g.slime_target = 'neovim'
+      vim.g.slime_target = 'tmux'
+      -- vim.g.slime_target = 'neovim'
       vim.g.slime_no_mappings = true
       vim.g.slime_python_ipython = 1
     end,
@@ -84,6 +85,7 @@ return {
 
   { -- paste an image from the clipboard or drag-and-drop
     'HakonHarnes/img-clip.nvim',
+    enabled = false,
     event = 'BufEnter',
     ft = { 'markdown', 'quarto', 'latex' },
     opts = {
@@ -115,6 +117,7 @@ return {
 
   { -- preview equations
     'jbyuki/nabla.nvim',
+    enabled = false,
     keys = {
       { '<leader>qm', ':lua require"nabla".toggle_virt()<cr>', desc = 'toggle [m]ath equations' },
     },

@@ -1,7 +1,7 @@
 {
   "eq": {
     "prefix": ["eq"],
-    "body": ["\\$\\$", "$1", "\\$\\$ {#eq-${2: label}}"]
+    "body": ["", "\\$\\$ $1", "\\$\\$ {#eq-${2: label}}"]
   },
   "Insert Inline Equation": {
     "prefix": "ii",
